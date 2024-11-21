@@ -27,15 +27,13 @@ struct SearchByNationResponse: Decodable {
 
 // Not storing 'ID Year' and 'Slug Nation' once they are redundant fields
 struct ByNationModel: Decodable {
-    let idNation: String
     let nation: String
-    let year: String
     let population: Int
+    let year: String
     
     enum CodingKeys: String, CodingKey {
-        case idNation = "ID Nation"
         case nation = "Nation"
-        case year = "Year"
         case population = "Population"
+        case year = "Year"
     }
 }
