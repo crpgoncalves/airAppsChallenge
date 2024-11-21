@@ -38,6 +38,12 @@ struct ListView: View {
                             ItemView(itemViewModel: $0)
                         }
                     }
+                } header: {
+                    if(listViewModel.items.isEmpty) {
+                        EmptyView()
+                    } else {
+                        Text("USA Population by \(selectedOption)")
+                    }
                 }
             }
             .listStyle(.insetGrouped)
