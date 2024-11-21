@@ -31,6 +31,13 @@ final class USAPopulationTests: XCTestCase {
         XCTAssertTrue(data.count > 0)
     }
     
+    func testShouldbadURL() async {
+        do {
+            _ = try await WebService.shared.getPopulationByContinent()
+        } catch {
+            XCTAssertEqual(error as! WebService.NetworkError, .badUrl)
+        }
+    }
 }
 
 

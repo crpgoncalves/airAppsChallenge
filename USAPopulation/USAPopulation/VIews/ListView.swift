@@ -27,8 +27,16 @@ struct ListView: View {
                     .pickerStyle(.segmented)
                 }
                 Section {
-                    ForEach(listViewModel.items) {
-                        ItemView(itemViewModel: $0)
+                    
+                    if(listViewModel.items.isEmpty) {
+                        Text("🛠 Unable to display Data")
+                            .font(.bold(.title)())
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                    } else {
+                        ForEach(listViewModel.items) {
+                            ItemView(itemViewModel: $0)
+                        }
                     }
                 }
             }
@@ -39,6 +47,9 @@ struct ListView: View {
                 await listViewModel.retreiveData()
             }
         }
+        //iPad Support
+        .navigationViewStyle(StackNavigationViewStyle())
+
     }
 }
 

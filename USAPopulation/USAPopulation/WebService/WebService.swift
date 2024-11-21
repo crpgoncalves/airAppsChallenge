@@ -77,6 +77,11 @@ class WebService {
             }.resume()
         }
     }
+    
+    //for testing purposes
+    func getPopulationByContinent() async throws -> [ByNationModel]{
+        throw NetworkError.badUrl
+    }
 }
 
 
